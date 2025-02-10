@@ -52,6 +52,19 @@ for i in range(n-1):
 print("sorted array:",my_array)
 
 def two_sum(nums, target):
-    num_dict={}
-    for
+    num_map = {}  # This will store the index of the visited elements
 
+    for i, num in enumerate(nums):
+        complement = target - num
+
+        if complement in num_map:
+            return [num_map[complement], i]  # Return the indices of the two numbers
+
+        num_map[num] = i  # Add the current number to the dictionary
+
+    return None  # Return None if no solution is found
+
+# Example usage:
+nums = [2, 7, 11, 15]
+target = 9
+print(two_sum(nums, target))  # Output: [0, 1]
